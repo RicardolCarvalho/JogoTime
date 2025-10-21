@@ -5,9 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 75a4b59a11f4c0b45bfcece15af5de11
+  - enabled: 1
+    path: Assets/Scenes/LastPlate.unity
+    guid: 162bcea5f2f5d954087c5d1818371eb1
+  - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: 4101652727d792e469e8a8600ccd859f
+  - enabled: 1
+    path: Assets/Scenes/Restaurant.unity
+    guid: 01d3149dbaff66149894773e6a0fc1d6
+  - enabled: 1
+    path: Assets/Scenes/Collapse.unity
+    guid: 588ad44d017b5f84b869aab0d35a8f41
+  - enabled: 1
+    path: Assets/Scenes/FinalMenu.unity
+    guid: 7eda8368937b27043bba003874e3c299
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
