@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: beebe0295c0d35943bc3d8cf29c13c6f
+guid: da2e1081e603a904f81b28fd42618dc0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6237906094790756171
-    second: Player_Movimento-removebg-preview_0
+      213: -2305882166703358453
+    second: player_movement-removebg-preview_0
   - first:
-      213: 2343119170396253132
-    second: Player_Movimento-removebg-preview_1
+      213: 4208181151741732742
+    second: player_movement-removebg-preview_1
   - first:
-      213: -5985788426054844100
-    second: Player_Movimento-removebg-preview_2
+      213: 7654292977695247250
+    second: player_movement-removebg-preview_2
   - first:
-      213: -1822954550143570560
-    second: Player_Movimento-removebg-preview_3
+      213: 8578039542615873896
+    second: player_movement-removebg-preview_3
   - first:
-      213: 2419478662821501898
-    second: Player_Movimento-removebg-preview_4
+      213: 5375613705186167269
+    second: player_movement-removebg-preview_4
   - first:
-      213: 4153443345992701602
-    second: Player_Movimento-removebg-preview_5
+      213: 324720860940094777
+    second: player_movement-removebg-preview_5
   - first:
-      213: -4717035290020201342
-    second: Player_Movimento-removebg-preview_6
+      213: 2092988330038260246
+    second: player_movement-removebg-preview_6
   - first:
-      213: 689271593852269805
-    second: Player_Movimento-removebg-preview_7
+      213: 3955558379183688390
+    second: player_movement-removebg-preview_7
   - first:
-      213: -4634369957845806764
-    second: Player_Movimento-removebg-preview_8
+      213: -1396824243778100681
+    second: player_movement-removebg-preview_8
   - first:
-      213: 4263711746462332368
-    second: Player_Movimento-removebg-preview_9
+      213: 4007878646173864686
+    second: player_movement-removebg-preview_9
   - first:
-      213: 40099501969125543
-    second: Player_Movimento-removebg-preview_10
+      213: -874149696006850054
+    second: player_movement-removebg-preview_10
   - first:
-      213: -5675286613989168231
-    second: Player_Movimento-removebg-preview_11
+      213: 6699005880539218033
+    second: player_movement-removebg-preview_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -162,9 +162,141 @@ TextureImporter:
       name: Down_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 333
+        x: 43
+        y: 332
+        width: 92
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0efcbfe26cdfffd0800000000000000
+      internalID: -2305882166703358453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 326
+        width: 91
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6876f0c2676766a30800000000000000
+      internalID: 4208181151741732742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_3
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 329
+        width: 91
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29bca46b8e2893a60800000000000000
+      internalID: 7654292977695247250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_4
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 326
         width: 90
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8699fdef3815b0770800000000000000
+      internalID: 8578039542615873896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 166
+        width: 89
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9c7530f240a9a40800000000000000
+      internalID: 5375613705186167269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 166
+        width: 91
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d4e7f07e3a18400800000000000000
+      internalID: 324720860940094777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slide_3
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 167
+        width: 95
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -174,108 +306,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b8b0c5e4718e69a0800000000000000
-      internalID: -6237906094790756171
+      spriteID: 612f7fa0cc9cb0d10800000000000000
+      internalID: 2092988330038260246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_2
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 330
-        width: 89
-        height: 163
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccb60e9987e648020800000000000000
-      internalID: 2343119170396253132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Down_3
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 327
-        width: 89
-        height: 163
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c314b5cf3253eeca0800000000000000
-      internalID: -5985788426054844100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Down_4
+      name: Slide_4
       rect:
         serializedVersion: 2
         x: 374
-        y: 330
-        width: 88
-        height: 163
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08da20dbe7093b6e0800000000000000
-      internalID: -1822954550143570560
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Side_1
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 167
-        width: 87
-        height: 159
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: acbdc1f5607b39120800000000000000
-      internalID: 2419478662821501898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Side_2
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 167
+        y: 166
         width: 89
-        height: 159
+        height: 161
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,52 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a6da90a7bef3a930800000000000000
-      internalID: 4153443345992701602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Side_3
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 168
-        width: 93
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 28c3d594569b98eb0800000000000000
-      internalID: -4717035290020201342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Side_4
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 167
-        width: 87
-        height: 159
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de4f459dcd8c09900800000000000000
-      internalID: 689271593852269805
+      spriteID: 6ca409f6367f4e630800000000000000
+      internalID: 3955558379183688390
       vertices: []
       indices: 
       edges: []
@@ -338,10 +338,10 @@ TextureImporter:
       name: Up_1
       rect:
         serializedVersion: 2
-        x: 44
+        x: 46
         y: 7
-        width: 86
-        height: 154
+        width: 89
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 451dbd8c3196fafb0800000000000000
-      internalID: -4634369957845806764
+      spriteID: 732e3ff30cb7d9ce0800000000000000
+      internalID: -1396824243778100681
       vertices: []
       indices: 
       edges: []
@@ -360,10 +360,10 @@ TextureImporter:
       name: Up_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 7
-        width: 86
-        height: 155
+        x: 155
+        y: 3
+        width: 89
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,20 +372,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d53c884e3fbb2b30800000000000000
-      internalID: 4263711746462332368
+      spriteID: ee21110e468de9730800000000000000
+      internalID: 4007878646173864686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up__3
+      name: Up_3
       rect:
         serializedVersion: 2
-        x: 264
-        y: 7
-        width: 89
-        height: 154
+        x: 263
+        y: 6
+        width: 91
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,8 +394,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a03a8ad8467e8000800000000000000
-      internalID: 40099501969125543
+      spriteID: af9fef0ab756ed3f0800000000000000
+      internalID: -874149696006850054
       vertices: []
       indices: 
       edges: []
@@ -404,10 +404,10 @@ TextureImporter:
       name: Up_4
       rect:
         serializedVersion: 2
-        x: 375
-        y: 7
-        width: 86
-        height: 154
+        x: 374
+        y: 6
+        width: 88
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,8 +416,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99b65aeb4e45d31b0800000000000000
-      internalID: -5675286613989168231
+      spriteID: 1700bc10b56a7fc50800000000000000
+      internalID: 6699005880539218033
       vertices: []
       indices: 
       edges: []
@@ -426,7 +426,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e83d3bad0404b1647b74eb4980db42e8
+    spriteID: eca01b41e2f4ccd4197f282a3e282c82
     internalID: 0
     vertices: []
     indices: 
@@ -434,22 +434,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":256.0,"y":341.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Down_1: -6237906094790756171
-      Down_2: 2343119170396253132
-      Down_3: -5985788426054844100
-      Down_4: -1822954550143570560
-      Side_1: 2419478662821501898
-      Side_2: 4153443345992701602
-      Side_3: -4717035290020201342
-      Side_4: 689271593852269805
-      Up_1: -4634369957845806764
-      Up_2: 4263711746462332368
-      Up_4: -5675286613989168231
-      Up__3: 40099501969125543
+      Down_1: -2305882166703358453
+      Down_2: 4208181151741732742
+      Down_3: 7654292977695247250
+      Down_4: 8578039542615873896
+      Slide_1: 5375613705186167269
+      Slide_2: 324720860940094777
+      Slide_3: 2092988330038260246
+      Slide_4: 3955558379183688390
+      Up_1: -1396824243778100681
+      Up_2: 4007878646173864686
+      Up_3: -874149696006850054
+      Up_4: 6699005880539218033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
