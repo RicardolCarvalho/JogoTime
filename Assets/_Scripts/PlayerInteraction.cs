@@ -107,9 +107,11 @@ public class PlayerInteraction : MonoBehaviour
     // ---------- Calcula distância considerando objetos compostos ----------
     float CalcularDistancia(GameObject go)
     {
-        // Se for InteragivelComposto (GameObject pai sem SpriteRenderer), usa o centro dos sprites filhos
+        // Se for InteragivelComposto ou InteragivelCompostoPorta (GameObject pai sem SpriteRenderer), usa o centro dos sprites filhos
         var composto = go.GetComponent<InteragivelComposto>();
-        if (composto != null)
+        var compostoPorta = go.GetComponent<InteragivelCompostoPorta>();
+        
+        if (composto != null || compostoPorta != null)
         {
             var renderers = go.GetComponentsInChildren<SpriteRenderer>(false);
             if (renderers.Length > 0)
@@ -148,6 +150,12 @@ public class PlayerInteraction : MonoBehaviour
         var c = go.GetComponent<InteragivelComposto>();
         if (c != null) return new ShimComposto(c);
 
+        var p = go.GetComponent<InteragivelCompostoPorta>();
+        if (p != null) return new ShimCompostoPorta(p);
+
+        var i = go.GetComponent<InteragivelItem>();
+        if (i != null) return new ShimItem(i);
+
         return null;
     }
 
@@ -164,6 +172,22 @@ public class PlayerInteraction : MonoBehaviour
     private class ShimComposto : IInteragivelShim
     {
         private readonly InteragivelComposto _i; public ShimComposto(InteragivelComposto i) { _i = i; }
+        public void Interagir() => _i.Interagir();
+        public void AtivarContorno() => _i.AtivarContorno();
+        public void DesativarContorno() => _i.DesativarContorno();
+    }
+
+    private class ShimCompostoPorta : IInteragivelShim
+    {
+        private readonly InteragivelCompostoPorta _i; public ShimCompostoPorta(InteragivelCompostoPorta i) { _i = i; }
+        public void Interagir() => _i.Interagir();
+        public void AtivarContorno() => _i.AtivarContorno();
+        public void DesativarContorno() => _i.DesativarContorno();
+    }
+
+    private class ShimItem : IInteragivelShim
+    {
+        private readonly InteragivelItem _i; public ShimItem(InteragivelItem i) { _i = i; }
         public void Interagir() => _i.Interagir();
         public void AtivarContorno() => _i.AtivarContorno();
         public void DesativarContorno() => _i.DesativarContorno();
