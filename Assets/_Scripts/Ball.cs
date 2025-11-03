@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEditor;
 
 public class Ball : MonoBehaviour
 {
     [Header("Configuração")]
-    public float speed = 2f;          // velocidade inicial
+    public float speed = 3f;          // velocidade inicial
     public float range = 4f;          // ida e volta a partir da posição inicial
     public Color[] colors = { Color.cyan, Color.magenta, Color.green };
+
+    [Header("Trocar de Cena ao Destruir")]
+    [Tooltip("Cena para onde vai ao destruir a bola")]
+    public SceneAsset cenaDestino;
 
     private SpriteRenderer sr;
     private Vector3 startPos;
@@ -30,7 +35,14 @@ public class Ball : MonoBehaviour
         {
             transform.Translate(Vector2.right * speed * 3f * Time.deltaTime);
             leaveTimer += Time.deltaTime;
-            if (leaveTimer >= leaveDuration) Destroy(gameObject);
+            if (leaveTimer >= leaveDuration)
+            {
+                if (cenaDestino != null)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(cenaDestino.name);
+                }
+                Destroy(gameObject);
+            }
             return;
         }
 
@@ -56,7 +68,7 @@ public class Ball : MonoBehaviour
             return;
         }
 
-        speed += 3.5f;
+        speed += 10f; // aumentada a velocidade depois de cada corte
 
         if (sr != null && colors.Length > 0)
         {
