@@ -13,9 +13,6 @@ public class InteragivelComposto : MonoBehaviour
     [Tooltip("Ícone do item (opcional)")]
     public Sprite iconeItem;
 
-    [Header("Detecção")]
-    [SerializeField] KeyCode teclaInteragir = KeyCode.E;
-
     [Header("Configurações Visuais")]
     public Color corContorno = Color.yellow;
     [Range(1f, 10f)] public float velocidadePiscada = 3f;

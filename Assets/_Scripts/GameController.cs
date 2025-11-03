@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameController : MonoBehaviour
 {
@@ -24,11 +29,17 @@ public class GameController : MonoBehaviour
     {
         new Req { name = "Molho", qty = 1 },
         new Req { name = "Calabresa", qty = 2 },
-        new Req { name = "Camarao", qty = 1 }
+        new Req { name = "Queijo", qty = 1 }
     };
 
     [Header("Progresso")]
     public float speedIncrement = 0.6f;
+    public int niveisCompletados = 0;
+    public int maxNiveis = 3;
+
+    [Header("Trocar de Cena")]
+    [Tooltip("Cena para onde vai após completar os 3 níveis")]
+    public SceneAsset cenaDestino;
 
     void Update()
     {
@@ -40,6 +51,22 @@ public class GameController : MonoBehaviour
         // checa conclusão
         if (IsRecipeComplete())
         {
+            niveisCompletados++;
+
+            // Verifica se completou os 3 níveis
+            if (niveisCompletados >= maxNiveis)
+            {
+                if (cenaDestino != null)
+                {
+                    SceneManager.LoadScene(cenaDestino.name);
+                }
+                else
+                {
+                    Debug.LogWarning("GameController: Completou 3 níveis mas não há cena destino configurada!");
+                }
+                return;
+            }
+
             // acelera a esteira
             pizza.speed += speedIncrement;
 
@@ -66,7 +93,8 @@ public class GameController : MonoBehaviour
     private string BuildStatus()
     {
         var sb = new StringBuilder();
-        sb.AppendLine("Pedido:");
+        sb.AppendLine($"<b>Nível: {niveisCompletados + 1}/{maxNiveis}</b>");
+        sb.AppendLine("<b>Pedido:</b>");
         foreach (var r in recipe)
         {
             int have = pizza.GetCount(r.name);
