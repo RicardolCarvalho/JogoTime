@@ -1311,7 +1311,7 @@ MonoBehaviour:
   speedIncrement: 0.6
   niveisCompletados: 0
   maxNiveis: 3
-  cenaDestino: {fileID: 102900000, guid: 7eda8368937b27043bba003874e3c299, type: 3}
+  cenaDestino: {fileID: 102900000, guid: 588ad44d017b5f84b869aab0d35a8f41, type: 3}
 --- !u!1 &1761734641
 GameObject:
   m_ObjectHideFlags: 0
