@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MolhoController : MonoBehaviour
 {
@@ -14,12 +16,71 @@ public class MolhoController : MonoBehaviour
     [Header("Referências")]
     public TomatoSpawner spawner;
     public GameObject screenFlash; // arraste o painel vermelho do Canvas
+    public ParticleSystem fireParticles; // arraste o sistema de partículas do fogo
+    
+    [Header("Cenas")]
+    [Tooltip("Arraste a cena de vitória (arraste o SceneAsset aqui)")]
+    public UnityEngine.Object cenaVitoria;
+
+    [Tooltip("Arraste a cena do mapa (para voltar ao perder)")]
+    public UnityEngine.Object cenaMapa;
+
+    [Header("Configuração do Fogo")]
+    [Tooltip("Quanto aumenta a emissão por erro")]
+    public float fireEmissionPerError = 50f;
+    
+    [Tooltip("Quanto aumenta o tamanho por erro")]
+    public float fireSizePerError = 0.5f;
+    
+    [Tooltip("Quanto aumenta a velocidade por erro")]
+    public float fireSpeedPerError = 2f;
+    
+    [Tooltip("Taxa de emissão quando explodir (tela cheia)")]
+    public float fireEmissionExplosion = 500f;
+
+    private float initialEmission;
+    private float initialSize;
+    private float initialSpeed;
 
     private bool gameEnded = false;
     private float flashTimer;
     private bool flashing;
 
-    void Awake() => instance = this;
+    void Awake()
+    {
+        instance = this;
+        
+        // Garante que o flash fique invisível no início
+        if (screenFlash != null)
+        {
+            var canvas = screenFlash.GetComponent<Canvas>();
+            if (canvas == null)
+            {
+                canvas = screenFlash.AddComponent<Canvas>();
+            }
+            canvas.overrideSorting = true;
+            canvas.sortingOrder = 999; // muito alto para ficar na frente de tudo
+            
+            var img = screenFlash.GetComponent<UnityEngine.UI.Image>();
+            if (img != null)
+            {
+                var c = img.color;
+                c.a = 0f;
+                img.color = c;
+            }
+        }
+        
+        // Configura valores iniciais do fogo (captura do próprio ParticleSystem)
+        if (fireParticles != null)
+        {
+            var emission = fireParticles.emission;
+            initialEmission = emission.rateOverTime.constant;
+            
+            var main = fireParticles.main;
+            initialSize = main.startSize.constant;
+            initialSpeed = main.startSpeed.constant;
+        }
+    }
 
     void Update()
     {
@@ -50,10 +111,54 @@ public class MolhoController : MonoBehaviour
         if (gameEnded) return;
         errors++;
 
+        // Aumenta o fogo gradualmente
+        if (fireParticles != null)
+        {
+            // Calcula novos valores baseados no número de erros
+            float newEmission = initialEmission + (errors * fireEmissionPerError);
+            float newSize = initialSize + (errors * fireSizePerError);
+            float newSpeed = initialSpeed + (errors * fireSpeedPerError);
+            
+            // Modifica emissão
+            var emission = fireParticles.emission;
+            emission.rateOverTime = newEmission;
+            
+            // Modifica tamanho e velocidade
+            var main = fireParticles.main;
+            main.startSize = newSize;
+            main.startSpeed = newSpeed;
+            
+            Debug.Log($"🔥 Fogo aumentado! Erro {errors} | Emissão: {newEmission} | Tamanho: {newSize} | Velocidade: {newSpeed}");
+        }
+
         if (errors >= maxErrors)
         {
             Explosion();
         }
+    }
+
+    
+
+    private void Explosion()
+    {
+        gameEnded = true;
+        spawner.canSpawn = false;
+        flashing = true;
+
+        // Fogo explode e toma conta da tela
+        if (fireParticles != null)
+        {
+            var emission = fireParticles.emission;
+            emission.rateOverTime = fireEmissionExplosion;
+            
+            // Aumenta o tamanho das partículas
+            var main = fireParticles.main;
+            main.startSize = new ParticleSystem.MinMaxCurve(2f, 5f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(5f, 15f);
+        }
+
+        Debug.Log("💥 Explosão de Molho!");
+        StartCoroutine(HandleLose());
     }
 
     private void Victory()
@@ -61,13 +166,34 @@ public class MolhoController : MonoBehaviour
         gameEnded = true;
         spawner.canSpawn = false;
         Debug.Log("✅ Vitória! Você salvou o jantar!");
+        StartCoroutine(HandleWin());
     }
 
-    private void Explosion()
+    private IEnumerator HandleWin()
     {
-        gameEnded = true;
-        spawner.canSpawn = false;
-        flashing = true;
-        Debug.Log("💥 Explosão de Molho!");
+        // pequeno delay para permitir que efeitos sejam vistos
+        yield return new WaitForSeconds(0.8f);
+        if (cenaVitoria != null)
+        {
+            SceneManager.LoadScene(cenaVitoria.name);
+        }
+        else
+        {
+            Debug.LogWarning("Cena de vitória não atribuída em MolhoController.");
+        }
+    }
+
+    private IEnumerator HandleLose()
+    {
+        // permite ver a explosão / flash antes de voltar ao mapa
+        yield return new WaitForSeconds(1.2f);
+        if (cenaMapa != null)
+        {
+            SceneManager.LoadScene(cenaMapa.name);
+        }
+        else
+        {
+            Debug.LogWarning("Cena do mapa não atribuída em MolhoController.");
+        }
     }
 }

@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame3.unity
     guid: eccb51c658e21674c94e8a1765c56ca0
+  - enabled: 1
+    path: Assets/Scenes/ExplosaoDeMolho.unity
+    guid: e605b5d6e501a9d4e9b1a9bf7e451e56
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
