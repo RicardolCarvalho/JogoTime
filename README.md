@@ -47,8 +47,12 @@ O jogo é dividido em três memórias centrais, cada uma com um minigame culiná
     - ["Food Icons Pixel Art"](https://craftpix.net/product/food-icons-pixel-art/) - CraftPix
 
   - **Música**: 
-    - Musicas nas salas - Autorais (Carlos Hernani)
+    - Musicas nas salas 1 e 2 - Autorais (Carlos Hernani)
+    - ["Main Menu Theme"](https://youtu.be/pvpCX9qtyZE?si=fxjxU8YfOVtGW3oC) - Musica Main Menu
+    - [Colapso](https://youtu.be/35pUQDrKy5A?si=g6tETyTK-RnLYmFs) - Musica Colapso
     - ["Minigame Corte"](https://www.youtube.com/watch?v=78da2vg8UuE) - Musica Corte
     - ["Minigame Pizza"](https://www.youtube.com/watch?v=LEZg_5PcUKI) - Musica Pizzatron
+    - ["Minigmae Tomate"](https://youtu.be/56oo-CvG6Gk?si=T-s7-3QexJ3AE5ko) - Musica Tomate
   - **Sons**:
     - ["Corte"]() - Pixabay
+    - ["Fogo"]() - Pixabay
