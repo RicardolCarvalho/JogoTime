@@ -2,15 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 [RequireComponent(typeof(SpriteRenderer))]
 public class InteragivelSimples : MonoBehaviour
 {
     [Header("Configurações de Interação")]
-    public SceneAsset cenaDestino;
+    public string cenaDestino;
 
     [Header("Itens Necessários")]
     [Tooltip("Lista de itens que o player precisa ter coletado para interagir")]
@@ -164,7 +160,7 @@ public class InteragivelSimples : MonoBehaviour
         // Tem todos os itens (ou não precisa de nenhum), pode trocar de cena
         try
         {
-            SceneManager.LoadScene(cenaDestino.name);
+            SceneManager.LoadScene(cenaDestino);
         }
         catch (System.Exception e)
         {

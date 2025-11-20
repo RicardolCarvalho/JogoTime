@@ -2,14 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 public class InteragivelCompostoPorta : MonoBehaviour
 {
     [Header("Configurações de Cena")]
-    public SceneAsset cenaDestino;
+    public string cenaDestino;
 
     [Header("Itens Necessários")]
     [Tooltip("Lista de itens que o player precisa ter coletado para interagir")]
@@ -206,7 +202,7 @@ public class InteragivelCompostoPorta : MonoBehaviour
 
         try
         {
-            SceneManager.LoadScene(cenaDestino.name);
+            SceneManager.LoadScene(cenaDestino);
         }
         catch (System.Exception e)
         {

@@ -22664,6 +22664,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8646888941932411139, guid: 9c29d86c826b4b2418cc86742aa719ca, type: 3}
+      propertyPath: cenaDestino
+      value: PizzatronSimple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646888941932411139, guid: 9c29d86c826b4b2418cc86742aa719ca, type: 3}
       propertyPath: itensNecessarios.Array.size
       value: 3
       objectReference: {fileID: 0}
