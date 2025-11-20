@@ -38,6 +38,24 @@ public class MolhoController : MonoBehaviour
     [Tooltip("Taxa de emissão quando explodir (tela cheia)")]
     public float fireEmissionExplosion = 500f;
 
+    [Header("Áudio")]
+    [Tooltip("Clip tocado quando um tomate é perdido/erro")]
+    public AudioClip tomatoMissClip;
+
+    [Tooltip("AudioSource opcional. Se vazio, o script tentará GetComponent<AudioSource>()")]
+    public AudioSource audioSource;
+
+    [Range(0f,1f)]
+    [Tooltip("Volume do som de erro")]
+    public float missVolume = 1f;
+    
+    [Tooltip("Clip tocado quando o jogador vence o minigame")]
+    public AudioClip victoryClip;
+
+    [Range(0f,1f)]
+    [Tooltip("Volume do som de vitória")]
+    public float victoryVolume = 1f;
+
     private float initialEmission;
     private float initialSize;
     private float initialSpeed;
@@ -79,6 +97,12 @@ public class MolhoController : MonoBehaviour
             var main = fireParticles.main;
             initialSize = main.startSize.constant;
             initialSpeed = main.startSpeed.constant;
+        }
+
+        // Inicializa AudioSource se necessário
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -131,6 +155,20 @@ public class MolhoController : MonoBehaviour
             Debug.Log($"🔥 Fogo aumentado! Erro {errors} | Emissão: {newEmission} | Tamanho: {newSize} | Velocidade: {newSpeed}");
         }
 
+        // Toca som de erro quando um tomate é perdido
+        if (tomatoMissClip != null)
+        {
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(tomatoMissClip, missVolume);
+            }
+            else
+            {
+                var pos = Camera.main != null ? Camera.main.transform.position : transform.position;
+                AudioSource.PlayClipAtPoint(tomatoMissClip, pos, missVolume);
+            }
+        }
+
         if (errors >= maxErrors)
         {
             Explosion();
@@ -166,6 +204,21 @@ public class MolhoController : MonoBehaviour
         gameEnded = true;
         spawner.canSpawn = false;
         Debug.Log("✅ Vitória! Você salvou o jantar!");
+
+        // Toca som de vitória
+        if (victoryClip != null)
+        {
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(victoryClip, victoryVolume);
+            }
+            else
+            {
+                var pos = Camera.main != null ? Camera.main.transform.position : transform.position;
+                AudioSource.PlayClipAtPoint(victoryClip, pos, victoryVolume);
+            }
+        }
+
         StartCoroutine(HandleWin());
     }
 

@@ -176,6 +176,11 @@ MonoBehaviour:
   fireSizePerError: 0.2
   fireSpeedPerError: 0.2
   fireEmissionExplosion: 11500
+  tomatoMissClip: {fileID: 8300000, guid: b3315fb5730ce6d4aae6afbd0b16ab42, type: 3}
+  audioSource: {fileID: 0}
+  missVolume: 0.2
+  victoryClip: {fileID: 8300000, guid: ffa353369aa201447b4e9e6390f20da5, type: 3}
+  victoryVolume: 1
 --- !u!1 &289997733
 GameObject:
   m_ObjectHideFlags: 0
@@ -5989,6 +5994,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.5219574, y: 1.5920027}
   m_EdgeRadius: 0
+--- !u!1 &1940684063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940684065}
+  - component: {fileID: 1940684064}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1940684064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940684063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20141fa57ed1be7478f65db497ea505c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneMusic
+  sceneMusic: {fileID: 8300000, guid: 792bf585ead82c04a9fdbc206c8848d8, type: 3}
+  volume: 0.2
+--- !u!4 &1940684065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940684063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.89907, y: 0.18196, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6002,3 +6053,4 @@ SceneRoots:
   - {fileID: 813096651}
   - {fileID: 190878853}
   - {fileID: 289997736}
+  - {fileID: 1940684065}
