@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
 
     [Header("Trocar de Cena ao Destruir")]
     [Tooltip("Cena para onde vai ao destruir a bola")]
-    public SceneAsset cenaDestino;
+    public string cenaDestino;
 
     private SpriteRenderer sr;
     private Vector3 startPos;
@@ -39,7 +39,7 @@ public class Ball : MonoBehaviour
             {
                 if (cenaDestino != null)
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(cenaDestino.name);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(cenaDestino);
                 }
                 Destroy(gameObject);
             }

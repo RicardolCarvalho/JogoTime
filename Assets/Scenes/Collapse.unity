@@ -18011,8 +18011,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570267886814926052, guid: fb253bfe5a9ff7549a2265646df61703, type: 3}
       propertyPath: cenaDestino
-      value: 
-      objectReference: {fileID: 102900000, guid: e605b5d6e501a9d4e9b1a9bf7e451e56, type: 3}
+      value: ExplosaoDeMolho
+      objectReference: {fileID: 0}
     - target: {fileID: 4570267886814926052, guid: fb253bfe5a9ff7549a2265646df61703, type: 3}
       propertyPath: brilhoContorno
       value: 3

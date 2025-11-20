@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a69b5c85d846f4b937ad7b143c663f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteragivelSimples
-  cenaDestino: {fileID: 102900000, guid: 1f9d913b4f668c6428375a21ec6cfb63, type: 3}
+  cenaDestino: corta
   itensNecessarios:
   - Melancia
   mensagemBloqueado: "Voc\xEA precisa coletar todos os itens antes!"

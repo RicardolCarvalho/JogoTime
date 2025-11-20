@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuActions
   cutscene1: {fileID: 32900000, guid: 3cc494eb16725594d9681acd9caf4071, type: 3}
+  webglCutsceneUrl: ' https://joao-pedro-queiroz.github.io/TheFinalRecipeCutscenes/cutscene1.mp4'
   gameSceneIndex: 2
   allowSkip: 1
   menuCanvas: {fileID: 1111918768}

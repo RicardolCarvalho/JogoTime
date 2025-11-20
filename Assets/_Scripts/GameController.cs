@@ -6,10 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 public class GameController : MonoBehaviour
 {
     [Serializable]
@@ -39,7 +35,7 @@ public class GameController : MonoBehaviour
 
     [Header("Trocar de Cena")]
     [Tooltip("Cena para onde vai após completar os 3 níveis")]
-    public SceneAsset cenaDestino;
+    public string cenaDestino;
 
     void Update()
     {
@@ -58,7 +54,7 @@ public class GameController : MonoBehaviour
             {
                 if (cenaDestino != null)
                 {
-                    SceneManager.LoadScene(cenaDestino.name);
+                    SceneManager.LoadScene(cenaDestino);
                 }
                 else
                 {

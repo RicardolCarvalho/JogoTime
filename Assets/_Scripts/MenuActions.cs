@@ -1,3 +1,7 @@
+#if UNITY_WEBGL && !UNITY_EDITOR
+#define USE_WEBGL_URL
+#endif
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -9,12 +13,13 @@ public class MenuActions : MonoBehaviour
 {
     [Header("Cutscene Config")]
     [SerializeField] private VideoClip cutscene1;
+    [SerializeField] private string webglCutsceneUrl;  // <-- URL do vídeo hospedado no itch.io
     [SerializeField] private int gameSceneIndex = 2;
     [SerializeField] private bool allowSkip = true;
 
     [Header("Menu UI")]
-    [SerializeField] private Canvas menuCanvas;     // arraste seu Canvas
-    [SerializeField] private Image blackout;        // arraste o Image "Blackout" (opcional, mas recomendado)
+    [SerializeField] private Canvas menuCanvas;
+    [SerializeField] private Image blackout;
 
     private GameObject playerGO;
     private VideoPlayer vp;
@@ -23,17 +28,25 @@ public class MenuActions : MonoBehaviour
 
     public void IniciarJogo()
     {
+#if USE_WEBGL_URL
+        if (string.IsNullOrEmpty(webglCutsceneUrl))
+        {
+            Debug.LogError("[MenuActions] webglCutsceneUrl não configurado!");
+            SceneManager.LoadScene(gameSceneIndex);
+            return;
+        }
+#else
         if (cutscene1 == null)
         {
             SceneManager.LoadScene(gameSceneIndex);
             return;
         }
+#endif
         PlayCutscene();
     }
 
     private void PlayCutscene()
     {
-        // Mostra o blackout por cima para não aparecer o fundo da câmera
         if (blackout != null) blackout.enabled = true;
 
         playing = true;
@@ -46,8 +59,15 @@ public class MenuActions : MonoBehaviour
 
         vp.playOnAwake = false;
         vp.isLooping = false;
-        vp.clip = cutscene1;
         vp.waitForFirstFrame = true;
+
+#if USE_WEBGL_URL
+        vp.source = VideoSource.Url;
+        vp.url = webglCutsceneUrl;
+#else
+        vp.source = VideoSource.VideoClip;
+        vp.clip = cutscene1;
+#endif
 
         vp.renderMode = VideoRenderMode.CameraNearPlane;
         vp.targetCamera = Camera.main ?? FindAnyObjectByType<Camera>();
@@ -57,7 +77,6 @@ public class MenuActions : MonoBehaviour
         vp.EnableAudioTrack(0, true);
         vp.SetTargetAudioSource(0, audioSrc);
 
-        // Só esconda o menu quando o vídeo estiver realmente pronto para tocar
         vp.prepareCompleted += OnPrepared;
         vp.loopPointReached += OnCutsceneFinished;
         vp.Prepare();
@@ -67,18 +86,15 @@ public class MenuActions : MonoBehaviour
     {
         vp.prepareCompleted -= OnPrepared;
 
-        // Agora que o primeiro frame está pronto, esconda o menu e dê Play
         if (menuCanvas) menuCanvas.enabled = false;
 
         vp.Play();
-
-        // Libera o blackout no frame seguinte (já com o vídeo por baixo)
         StartCoroutine(HideBlackoutNextFrame());
     }
 
     private IEnumerator HideBlackoutNextFrame()
     {
-        yield return null; // espera 1 frame para garantir que o vídeo começou a desenhar
+        yield return null;
         if (blackout != null) blackout.enabled = false;
     }
 
@@ -89,7 +105,7 @@ public class MenuActions : MonoBehaviour
         if ((Keyboard.current?.escapeKey.wasPressedThisFrame ?? false) ||
             (Gamepad.current?.startButton.wasPressedThisFrame ?? false))
         {
-            if (blackout != null) blackout.enabled = true; // cobre enquanto troca de cena
+            if (blackout != null) blackout.enabled = true;
             vp.Stop();
             OnCutsceneFinished(vp);
         }
@@ -100,11 +116,10 @@ public class MenuActions : MonoBehaviour
         var op = SceneManager.LoadSceneAsync(gameSceneIndex);
         op.allowSceneActivation = false;
 
-        // mantém blackout ligado durante o carregamento da nova cena
         while (op.progress < 0.9f)
             yield return null;
 
-        yield return null;           // 1 frame de folga
+        yield return null;
         op.allowSceneActivation = true;
     }
 
@@ -113,7 +128,6 @@ public class MenuActions : MonoBehaviour
         playing = false;
         vp.loopPointReached -= OnCutsceneFinished;
 
-        // Garante blackout ligado até a nova cena entrar
         if (blackout != null) blackout.enabled = true;
 
         if (playerGO) Destroy(playerGO);
