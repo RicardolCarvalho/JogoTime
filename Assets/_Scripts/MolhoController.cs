@@ -20,10 +20,10 @@ public class MolhoController : MonoBehaviour
     
     [Header("Cenas")]
     [Tooltip("Arraste a cena de vitória (arraste o SceneAsset aqui)")]
-    public UnityEngine.Object cenaVitoria;
+    public string cenaVitoria;
 
     [Tooltip("Arraste a cena do mapa (para voltar ao perder)")]
-    public UnityEngine.Object cenaMapa;
+    public string cenaMapa;
 
     [Header("Configuração do Fogo")]
     [Tooltip("Quanto aumenta a emissão por erro")]
@@ -228,7 +228,7 @@ public class MolhoController : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         if (cenaVitoria != null)
         {
-            SceneManager.LoadScene(cenaVitoria.name);
+            SceneManager.LoadScene(cenaVitoria);
         }
         else
         {
@@ -242,7 +242,7 @@ public class MolhoController : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         if (cenaMapa != null)
         {
-            SceneManager.LoadScene(cenaMapa.name);
+            SceneManager.LoadScene(cenaMapa);
         }
         else
         {
