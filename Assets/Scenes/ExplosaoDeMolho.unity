@@ -170,8 +170,8 @@ MonoBehaviour:
   spawner: {fileID: 1153343169}
   screenFlash: {fileID: 1472925726}
   fireParticles: {fileID: 289997735}
-  cenaVitoria: {fileID: 102900000, guid: 162bcea5f2f5d954087c5d1818371eb1, type: 3}
-  cenaMapa: {fileID: 102900000, guid: 588ad44d017b5f84b869aab0d35a8f41, type: 3}
+  cenaVitoria: LastPlate
+  cenaMapa: Collapse
   fireEmissionPerError: 1150
   fireSizePerError: 0.2
   fireSpeedPerError: 0.2
